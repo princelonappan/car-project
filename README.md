@@ -68,7 +68,7 @@ $ git clone https://github.com/princelonappan/car-project.git
 
 #### Create the Database and run SQL File
 
-- Create the database and import the sql (car.sql) file to the database.
+- Create the database and import the sql (oscar_car_rental.sql) file to the database.
 - Need to update the database configuration details in the Database\DatabaseConnector.php file
 
 #### Running as a Docker container
@@ -76,7 +76,7 @@ $ git clone https://github.com/princelonappan/car-project.git
 The following docker command will run the application.
 
 ```
-$ cd elucidate
+$ cd car-project
 $ docker-compose up -d
 ```
 This will start the application.

@@ -17,4 +17,3 @@ COPY . /var/www/html/car/
 #RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
 RUN /usr/bin/composer install
-RUN /usr/bin/php -S localhost:800
