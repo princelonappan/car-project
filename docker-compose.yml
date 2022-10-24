@@ -2,14 +2,29 @@ version: '3.5'
 services:
   api:
     ports:
-      - "8000:8000"
+      - "8005:8005"
     volumes:
       - .:/var/www/html
-      - /var/www/html/car/
-    expose:
-      - "8000"
-    build:
-      dockerfile: Dockerfile
-      context: .
-    command: /usr/bin/php -S localhost:8000
+      - /var/www/html/car-api-12/
+    build: .
+    depends_on:
+      - db
+    links:
+      - db
+    command: php -S api:8005 index.php
     restart: always
+
+  db:
+    container_name: db
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: oscar_car_rental
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - ./database/mysql:/var/lib/mysql:cached
+      - ./config/database/etc/mysql:/etc/mysql
+    ports:
+      - '3307:3306'

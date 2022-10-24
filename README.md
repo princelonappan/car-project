@@ -23,6 +23,7 @@ This application provides the following API features.
 - Upload the file in the 'file' key
 - Use the POST Request
 - Use the form-data option
+- This will insert data in the uploaded file to the database
 
 ```bash
 $  http://localhost:8000/car/upload-files
@@ -81,9 +82,21 @@ $ docker-compose up -d
 ```
 This will start the application.
 
+#### Run on local using 
+
+The following docker command will run the application.
+
+```
+$ cd car-project
+$ composer install
+$ php -S localhost:8000
+```
+This will start the application.
+
 #### Run Test
 
 - Identify the container id by running '**docker ps**' 
 - Run the following command - 
 - **docker exec -ti *containerid* bash**
 - Run the command **php bin/phpunit**
+
